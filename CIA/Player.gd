@@ -4,7 +4,7 @@ extends KinematicBody2D
 onready var motion = GLOBAL.motion
 onready var score = GLOBAL.score
 onready var timer = GLOBAL.timer
-var motion1 = Vector2()
+onready var speed = GLOBAL.speed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,5 +19,13 @@ func _process(delta):
 func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_left"):
-		motion1.x = max(motion1.x-20, -500)
-		$AnimatedSprite.play("idle")
+		motion.x = max(motion.x-20, -speed)
+		
+	elif Input.is_action_pressed("ui_right"):
+		motion.x = min(motion.x+20, speed)
+		
+
+
+
+		
+	move_and_slide(motion)

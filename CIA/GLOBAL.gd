@@ -4,6 +4,7 @@ extends Node2D
 var score = 0
 var motion = Vector2()
 var timer : float = 0
+var speed = 500
 
 
 # Called when the node enters the scene tree for the first time.
