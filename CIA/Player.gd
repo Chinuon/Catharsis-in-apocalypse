@@ -19,7 +19,7 @@ func _process(delta):
 
 	
 func _physics_process(delta):
-
+	
 	if Input.is_action_pressed("ui_left"):
 		motion.x = max(motion.x-20, -speed)
 		

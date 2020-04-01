@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=2]
 
-[ext_resource path="res://character.gd" type="Script" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://main_char/Front/PNG Sequences/Warrior_clothes_empty/Idle/0_Warrior_Idle_000.png" type="Texture" id=2]
 [ext_resource path="res://main_char/Front/PNG Sequences/Warrior_clothes_empty/Idle/0_Warrior_Idle_001.png" type="Texture" id=3]
 [ext_resource path="res://main_char/Front/PNG Sequences/Warrior_clothes_empty/Idle/0_Warrior_Idle_002.png" type="Texture" id=4]
