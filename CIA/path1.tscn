@@ -6,3 +6,6 @@
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
+format = 1
+
+[node name="Player" type="KinematicBody2D" parent="."]
