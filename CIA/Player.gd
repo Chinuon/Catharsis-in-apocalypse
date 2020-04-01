@@ -5,7 +5,7 @@ onready var motion = GLOBAL.motion
 onready var score = GLOBAL.score
 onready var timer = GLOBAL.timer
 onready var speed = GLOBAL.speed
-
+onready var friction = GLOBAL.friction
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,11 +21,13 @@ func _process(delta):
 func _physics_process(delta):
 
 	if Input.is_action_pressed("ui_left"):
-		motion.x = max(motion.x-2, -speed)
+		motion.x = max(motion.x-20, -speed)
 		
 	elif Input.is_action_pressed("ui_right"):
-		motion.x = min(motion.x+2, speed)
+		motion.x = min(motion.x+20, speed)
 		
+	else:
+		friction = true
 
 		
 
