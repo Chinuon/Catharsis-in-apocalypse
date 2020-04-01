@@ -14,7 +14,8 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
+
 	if friction == true:
-		motion = Vector2(0, 0)
+		motion.x = 0
 
 

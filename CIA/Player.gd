@@ -27,7 +27,8 @@ func _physics_process(delta):
 		motion.x = min(motion.x+20, speed)
 		
 	else:
-		friction = true
+		motion.x = 0
+		motion.y = 0
 
 		
 
