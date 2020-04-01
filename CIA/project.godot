@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GLOBAL="*res://GLOBAL.gd"
+Player="*res://Player.gd"
 
 [rendering]
 
