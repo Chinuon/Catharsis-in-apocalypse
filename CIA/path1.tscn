@@ -162,4 +162,3 @@ polygon = PoolVector2Array( 358.355, 388.501, 370.649, 385.59, 382.296, 387.207,
 [node name="ani" type="AnimatedSprite" parent="Player"]
 position = Vector2( 356.2, 423.31 )
 frames = SubResource( 2 )
-animation = "idle"

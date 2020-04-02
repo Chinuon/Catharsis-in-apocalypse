@@ -22,19 +22,19 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_left"):
 		motion.x = max(motion.x-20, -speed)
-		$ani.play("left")
+#		$ani.play("left")
 		
 	elif Input.is_action_pressed("ui_right"):
 		motion.x = min(motion.x+20, speed)
-		$ani.play("right")
+#		$ani.play("right")
 		
 	elif Input.is_action_pressed("ui_down"):
 		motion.y = max(motion.y+20, speed)
-		$ani.play("down")
+#		$ani.play("down")
 		
 	elif Input.is_action_pressed("ui_up"):
 		motion.y = min(motion.x-20, -speed)
-		$ani.play("up")
+#		$ani.play("up")
 		
 	else:
 		motion.x = 0
