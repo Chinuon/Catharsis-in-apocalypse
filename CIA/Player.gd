@@ -1,4 +1,4 @@
-xtends KinematicBody2D
+extends KinematicBody2D
 
 # Declare member variables here. 
 onready var motion = GLOBAL.motion
