@@ -1,6 +1,5 @@
 extends Node2D
-
-# Declare member variables here.
+#global variables
 var velocity = Vector2.ZERO
 var input_vector = Vector2.ZERO
 const MAX_SPEED = 200
