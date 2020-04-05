@@ -13,7 +13,6 @@ func _physics_process(delta):
 		velocity = velocity.clamped(m_speed * delta) 
 	else:
 		velocity = GLOBAL.velocity * delta * fric
-		
 	move_and_collide(velocity * delta * m_speed)
 	
 
