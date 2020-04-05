@@ -3,10 +3,8 @@ onready var m_speed = GLOBAL.MAX_SPEED
 onready var velocity = GLOBAL.velocity
 const accel = GLOBAL.ACCELERATION
 const fric = GLOBAL.FRICTION
-
 onready var anim := $anim
 onready var shape := $CollisionShape2D
-
 func _physics_process(delta):
 	var input_vector = GLOBAL.input_vector
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
