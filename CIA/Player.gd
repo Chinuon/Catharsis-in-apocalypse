@@ -1,46 +1,17 @@
 extends KinematicBody2D
 
-# Declare member variables here. 
-onready var motion = GLOBAL.motion
-onready var score = GLOBAL.score
-onready var timer = GLOBAL.timer
-onready var speed = GLOBAL.speed
+var velocity = Vector2.ZERO
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	set_physics_process(true)
-	set_process(true)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-	
 func _physics_process(delta):
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
-	if Input.is_action_pressed("ui_left"):
-		motion.x = max(motion.x-20, -speed)
-#		$ani.play("left")
-		
-	elif Input.is_action_pressed("ui_right"):
-		motion.x = min(motion.x+20, speed)
-#		$ani.play("right")
-		
-	elif Input.is_action_pressed("ui_down"):
-		motion.y = max(motion.y+20, speed)
-#		$ani.play("down")
-		
-	elif Input.is_action_pressed("ui_up"):
-		motion.y = min(motion.x-20, -speed)
-#		$ani.play("up")
-		
+	if input_vector != Vector2.ZERO:
+		velocity = input_vector
 	else:
-		motion.x = 0
-		motion.y = 0
-
+		velocity = Vector2.ZERO
 		
-	move_and_slide(motion)
+	move_and_collide(velocity)
 	
 
