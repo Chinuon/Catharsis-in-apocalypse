@@ -17,10 +17,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 2, 2, 3, 4 ]
+"values": [ 1, 2, 3, 4, 5, 3 ]
 }
 
 [node name="Player" type="KinematicBody2D"]
@@ -32,7 +32,7 @@ position = Vector2( 2.77594, 1.85063 )
 scale = Vector2( 2.53255, 2.67713 )
 texture = ExtResource( 2 )
 hframes = 60
-frame = 6
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.858551, 6.43921 )
