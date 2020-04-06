@@ -22,7 +22,7 @@ func _physics_process(delta):
 		ROLL:
 			pass
 		ATTACK:
-			pass
+			attack_State(delta)
 	move_State(delta)
 func move_State(delta):
 	var input_vector = GLOBAL.input_vector
@@ -41,4 +41,6 @@ func move_State(delta):
 	move_and_collide(velocity * delta * m_speed)
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
+func attack_State(delta):
+	pass
 	
