@@ -11,7 +11,10 @@ func _physics_process(delta):
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
 	if input_vector != Vector2.ZERO:
-		anim.play("RunRight")
+		if input_vector.x > 0:
+			anim.play("RunRight")
+		else:
+			anim.play("RunLeft")
 		velocity += input_vector * accel * delta
 		velocity = velocity.clamped(m_speed * delta) 
 	else:
