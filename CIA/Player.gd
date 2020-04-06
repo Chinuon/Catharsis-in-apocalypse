@@ -16,6 +16,13 @@ var state = MOVE
 func _ready():
 	animtree.active = true
 func _physics_process(delta):
+	match state:
+		MOVE:
+			move_State(delta)
+		ROLL:
+			pass
+		ATTACK:
+			pass
 	move_State(delta)
 func move_State(delta):
 	var input_vector = GLOBAL.input_vector
