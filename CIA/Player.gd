@@ -7,9 +7,17 @@ onready var anim := $anim
 onready var shape := $CollisionShape2D
 onready var animtree = $AnimationTree
 onready var animstate = animtree.get("parameters/playback")
+enum {
+	MOVE,
+	ROLL,
+	ATTACK
+}
+var state = MOVE
 func _ready():
 	animtree.active = true
 func _physics_process(delta):
+	move_State(delta)
+func move_State(delta):
 	var input_vector = GLOBAL.input_vector
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
