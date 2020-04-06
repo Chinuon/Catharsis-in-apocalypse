@@ -5,20 +5,21 @@ const accel = GLOBAL.ACCELERATION
 const fric = GLOBAL.FRICTION
 onready var anim := $anim
 onready var shape := $CollisionShape2D
+onready var animtree = $AnimationTree
+onready var animstate = animtree.get("parameters/playback")
 func _physics_process(delta):
 	var input_vector = GLOBAL.input_vector
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
 	if input_vector != Vector2.ZERO:
-		if input_vector.x > 0:
-			anim.play("RunRight")
-		else:
-			anim.play("RunLeft")
+		animtree.set("parameters/Idle/blend_position", input_vector)
+		animtree.set("parameters/Run/blend_position", input_vector)
+		animstate.travel("Run")
 		velocity += input_vector * accel * delta
 		velocity = velocity.clamped(m_speed * delta) 
 	else:
-		anim.play("IdleRight")
+		animstate.travel("Idle")
 		velocity = GLOBAL.velocity * delta * fric
 	move_and_collide(velocity * delta * m_speed)
 	
