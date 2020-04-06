@@ -385,13 +385,13 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id=22]
 states/Attack/node = SubResource( 28 )
-states/Attack/position = Vector2( 323, 141 )
+states/Attack/position = Vector2( 130, 150 )
 states/Idle/node = SubResource( 14 )
 states/Idle/position = Vector2( 130, 69 )
 states/Roll/node = SubResource( 40 )
-states/Roll/position = Vector2( 600, 77 )
+states/Roll/position = Vector2( 688, 109 )
 states/Run/node = SubResource( 19 )
-states/Run/position = Vector2( 321, 59 )
+states/Run/position = Vector2( 325, 61 )
 transitions = [ "Idle", "Run", SubResource( 20 ), "Run", "Idle", SubResource( 21 ), "Idle", "Attack", SubResource( 29 ), "Attack", "Idle", SubResource( 30 ) ]
 start_node = "Idle"
 
@@ -406,7 +406,7 @@ position = Vector2( 2.54398, 1.85063 )
 scale = Vector2( 2.53255, 2.67713 )
 texture = ExtResource( 2 )
 hframes = 60
-frame = 43
+frame = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.858551, 6.43921 )
@@ -434,7 +434,7 @@ anims/RunUp = SubResource( 9 )
 tree_root = SubResource( 22 )
 anim_player = NodePath("../anim")
 parameters/playback = SubResource( 23 )
-parameters/Attack/blend_position = Vector2( -0.108534, 0.180172 )
+parameters/Attack/blend_position = Vector2( 0, 0 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Roll/blend_position = Vector2( 0.617233, -0.132759 )
 parameters/Run/blend_position = Vector2( 0, 0 )

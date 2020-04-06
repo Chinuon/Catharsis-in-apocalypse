@@ -32,6 +32,7 @@ func move_State(delta):
 	if input_vector != Vector2.ZERO:
 		animtree.set("parameters/Idle/blend_position", input_vector)
 		animtree.set("parameters/Run/blend_position", input_vector)
+		animtree.set("parameters/Attack/blend_position", input_vector)
 		animstate.travel("Run")
 		velocity += input_vector * accel * delta
 		velocity = velocity.clamped(m_speed * delta) 
@@ -39,8 +40,7 @@ func move_State(delta):
 		animstate.travel("Idle")
 		velocity = GLOBAL.velocity * delta * fric
 	move_and_collide(velocity * delta * m_speed)
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_pressed("ui_select"):
 		state = ATTACK
 func attack_State(delta):
-	pass
-	
+	animstate.travel("Attack")
