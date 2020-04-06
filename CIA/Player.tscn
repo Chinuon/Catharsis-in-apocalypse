@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Action RPG Resources/Player/Player.png" type="Texture" id=2]
@@ -143,6 +143,74 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 
+[sub_resource type="Animation" id=36]
+resource_name = "RollDown"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 55, 56, 58, 59 ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "RollLeft"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 51, 50, 52, 53, 54 ]
+}
+
+[sub_resource type="Animation" id=38]
+resource_name = "RollRight"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 40, 41, 42, 43, 44 ]
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "RollUp"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 46, 47, 48, 49 ]
+}
+
 [sub_resource type="Animation" id=6]
 length = 0.6
 loop = true
@@ -257,6 +325,10 @@ min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
+[sub_resource type="AnimationNodeBlendSpace2D" id=40]
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+
 [sub_resource type="AnimationNodeAnimation" id=15]
 animation = "RunLeft"
 
@@ -295,6 +367,8 @@ states/Attack/node = SubResource( 28 )
 states/Attack/position = Vector2( 323, 141 )
 states/Idle/node = SubResource( 14 )
 states/Idle/position = Vector2( 130, 69 )
+states/Roll/node = SubResource( 40 )
+states/Roll/position = Vector2( 600, 77 )
 states/Run/node = SubResource( 19 )
 states/Run/position = Vector2( 321, 59 )
 transitions = [ "Idle", "Run", SubResource( 20 ), "Run", "Idle", SubResource( 21 ), "Idle", "Attack", SubResource( 29 ), "Attack", "Idle", SubResource( 30 ) ]
@@ -311,7 +385,7 @@ position = Vector2( 2.54398, 1.85063 )
 scale = Vector2( 2.53255, 2.67713 )
 texture = ExtResource( 2 )
 hframes = 60
-frame = 34
+frame = 46
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.858551, 6.43921 )
@@ -326,6 +400,10 @@ anims/IdleDown = SubResource( 2 )
 anims/IdleLeft = SubResource( 3 )
 anims/IdleRight = SubResource( 4 )
 anims/IdleUp = SubResource( 5 )
+anims/RollDown = SubResource( 36 )
+anims/RollLeft = SubResource( 37 )
+anims/RollRight = SubResource( 38 )
+anims/RollUp = SubResource( 39 )
 anims/RunDown = SubResource( 6 )
 anims/RunLeft = SubResource( 7 )
 anims/RunRight = SubResource( 8 )
@@ -337,4 +415,5 @@ anim_player = NodePath("../anim")
 parameters/playback = SubResource( 23 )
 parameters/Attack/blend_position = Vector2( -0.108534, 0.180172 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
+parameters/Roll/blend_position = Vector2( 0, 0 )
 parameters/Run/blend_position = Vector2( 0, 0 )
