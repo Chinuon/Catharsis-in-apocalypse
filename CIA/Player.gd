@@ -39,4 +39,6 @@ func move_State(delta):
 		animstate.travel("Idle")
 		velocity = GLOBAL.velocity * delta * fric
 	move_and_collide(velocity * delta * m_speed)
+	if Input.is_action_just_pressed("attack"):
+		state = ATTACK
 	
