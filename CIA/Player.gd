@@ -7,6 +7,8 @@ onready var anim := $anim
 onready var shape := $CollisionShape2D
 onready var animtree = $AnimationTree
 onready var animstate = animtree.get("parameters/playback")
+func _ready():
+	animtree.active = true
 func _physics_process(delta):
 	var input_vector = GLOBAL.input_vector
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
