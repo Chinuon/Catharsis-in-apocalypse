@@ -25,7 +25,7 @@ func _physics_process(delta):
 		MOVE:
 			move_State(delta)
 		ROLL:
-			pass
+			roll_State(delta)
 		ATTACK:
 			attack_State(delta)
 func move_State(delta):
@@ -37,6 +37,7 @@ func move_State(delta):
 		animtree.set("parameters/Idle/blend_position", input_vector)
 		animtree.set("parameters/Run/blend_position", input_vector)
 		animtree.set("parameters/Attack/blend_position", input_vector)
+		animtree.set("parameters/Roll/blend_position", input_vector)
 		animstate.travel("Run")
 		velocity += input_vector * accel * delta
 		velocity = velocity.clamped(m_speed * delta) 
@@ -44,10 +45,21 @@ func move_State(delta):
 		animstate.travel("Idle")
 		velocity = GLOBAL.velocity * delta * fric
 	move_and_collide(velocity * delta * m_speed)
-	if Input.is_action_pressed("ui_select"):
+	if Input.is_action_just_pressed("ui_select"):
 		state = ATTACK
+	if Input.is_action_just_pressed("Roll"):
+		state = ROLL
+# to start the attack
 func attack_State(delta):
 	velocity = Vector2.ZERO
 	animstate.travel("Attack")
+# to stop the attack
+# it is connected to track by using call method
 func attack_animation_finished():
+	state = MOVE
+# to start the roll
+func roll_State(delta):
+	animstate.travel("Roll")
+# to stop the roll state
+func roll_animation_finished():
 	state = MOVE
