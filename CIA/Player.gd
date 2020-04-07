@@ -9,6 +9,7 @@ onready var anim := $anim
 onready var shape := $CollisionShape2D
 onready var animtree = $AnimationTree
 onready var animstate = animtree.get("parameters/playback")
+onready var ikp = GLOBAL.inputkey_pressed
 #for state machine
 enum {
 	MOVE,
@@ -25,7 +26,7 @@ func _physics_process(delta):
 		MOVE:
 			move_State(delta)
 		ROLL:
-			pass
+			roll_State(delta)
 		ATTACK:
 			attack_State(delta)
 func move_State(delta):
@@ -34,20 +35,31 @@ func move_State(delta):
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
 	if input_vector != Vector2.ZERO:
+		ikp = true
 		animtree.set("parameters/Idle/blend_position", input_vector)
 		animtree.set("parameters/Run/blend_position", input_vector)
 		animtree.set("parameters/Attack/blend_position", input_vector)
+		animtree.set("parameters/Roll/blend_position", input_vector)
 		animstate.travel("Run")
 		velocity += input_vector * accel * delta
 		velocity = velocity.clamped(m_speed * delta) 
 	else:
+		ikp = false
 		animstate.travel("Idle")
 		velocity = GLOBAL.velocity * delta * fric
 	move_and_collide(velocity * delta * m_speed)
-	if Input.is_action_pressed("ui_select"):
+	if Input.is_action_just_pressed("ui_select"):
 		state = ATTACK
+	if Input.is_action_just_pressed("Roll") and ikp == true:
+		state = ROLL
+# to start the attack
 func attack_State(delta):
 	velocity = Vector2.ZERO
 	animstate.travel("Attack")
-func attack_animation_finished():
+# to stop the attack and the roll animation
+# it is connected to track by using call method
+func animation_finished():
 	state = MOVE
+# to start the roll
+func roll_State(delta):
+	animstate.travel("Roll")
