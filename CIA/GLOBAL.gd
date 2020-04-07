@@ -4,6 +4,6 @@ extends Node2D
 var velocity = Vector2.ZERO
 var input_vector = Vector2.ZERO
 const MAX_SPEED = 200
-const ACCELERATION = 10
+const ACCELERATION = 5
 const FRICTION = 40
 var inputkey_pressed = false
