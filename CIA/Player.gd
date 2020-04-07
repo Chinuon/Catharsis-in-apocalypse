@@ -42,4 +42,7 @@ func move_State(delta):
 	if Input.is_action_pressed("ui_select"):
 		state = ATTACK
 func attack_State(delta):
+	velocity = Vector2.ZERO
 	animstate.travel("Attack")
+func attack_animation_finished():
+	state = MOVE
