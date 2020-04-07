@@ -56,13 +56,10 @@ func move_State(delta):
 func attack_State(delta):
 	velocity = Vector2.ZERO
 	animstate.travel("Attack")
-# to stop the attack
+# to stop the attack and the roll animation
 # it is connected to track by using call method
-func attack_animation_finished():
+func animation_finished():
 	state = MOVE
 # to start the roll
 func roll_State(delta):
 	animstate.travel("Roll")
-# to stop the roll state
-func roll_animation_finished():
-	state = MOVE
