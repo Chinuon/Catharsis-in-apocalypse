@@ -1,4 +1,6 @@
 extends KinematicBody2D
+# variables are declare here
+## we are using onready has we are loading the varibales from a global script using autolaod in godot
 onready var m_speed = GLOBAL.MAX_SPEED
 onready var velocity = GLOBAL.velocity
 const accel = GLOBAL.ACCELERATION
@@ -7,6 +9,7 @@ onready var anim := $anim
 onready var shape := $CollisionShape2D
 onready var animtree = $AnimationTree
 onready var animstate = animtree.get("parameters/playback")
+#for state machine
 enum {
 	MOVE,
 	ROLL,
@@ -16,6 +19,8 @@ var state = MOVE
 func _ready():
 	animtree.active = true
 func _physics_process(delta):
+	#match state - which is just like if and elif 
+	# we can also use that but we are using it for simplicity
 	match state:
 		MOVE:
 			move_State(delta)
@@ -42,4 +47,7 @@ func move_State(delta):
 	if Input.is_action_pressed("ui_select"):
 		state = ATTACK
 func attack_State(delta):
+	velocity = Vector2.ZERO
 	animstate.travel("Attack")
+func attack_animation_finished():
+	state = MOVE
