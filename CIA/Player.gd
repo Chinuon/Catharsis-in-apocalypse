@@ -63,3 +63,4 @@ func animation_finished():
 # to start the roll
 func roll_State(delta):
 	animstate.travel("Roll")
+	move_and_collide(velocity * delta * m_speed * 2)
