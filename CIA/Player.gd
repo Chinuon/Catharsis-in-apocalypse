@@ -23,7 +23,6 @@ func _physics_process(delta):
 			pass
 		ATTACK:
 			attack_State(delta)
-	move_State(delta)
 func move_State(delta):
 	var input_vector = GLOBAL.input_vector
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
