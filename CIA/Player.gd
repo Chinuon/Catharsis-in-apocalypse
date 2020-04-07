@@ -9,6 +9,7 @@ onready var anim := $anim
 onready var shape := $CollisionShape2D
 onready var animtree = $AnimationTree
 onready var animstate = animtree.get("parameters/playback")
+onready var ikp = GLOBAL.inputkey_pressed
 #for state machine
 enum {
 	MOVE,
@@ -34,6 +35,7 @@ func move_State(delta):
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
 	if input_vector != Vector2.ZERO:
+		ikp = true
 		animtree.set("parameters/Idle/blend_position", input_vector)
 		animtree.set("parameters/Run/blend_position", input_vector)
 		animtree.set("parameters/Attack/blend_position", input_vector)
@@ -42,12 +44,13 @@ func move_State(delta):
 		velocity += input_vector * accel * delta
 		velocity = velocity.clamped(m_speed * delta) 
 	else:
+		ikp = false
 		animstate.travel("Idle")
 		velocity = GLOBAL.velocity * delta * fric
 	move_and_collide(velocity * delta * m_speed)
 	if Input.is_action_just_pressed("ui_select"):
 		state = ATTACK
-	if Input.is_action_just_pressed("Roll"):
+	if Input.is_action_just_pressed("Roll") and ikp == true:
 		state = ROLL
 # to start the attack
 func attack_State(delta):
