@@ -14,17 +14,20 @@
 ## Features
 
 - Character selection
-- occupies less space
-- cool outfits
+- Occupies less space
+- Cool outfits
 - Amazing weapons
-- talk to players (chat system)
-- marriage system
+- Talk to players (chat system)
+- Marriage system
+- Dragons
+- unicorns
+- Underwater gaming 
 
 ## Features for future
 
 - Character design
 - World creation
-- duel
-- guilds
+- Duel
+- Guilds
 
 # comming soon on android and windows.
