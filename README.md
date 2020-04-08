@@ -10,3 +10,21 @@
 
 <i>Catharsis in apocalypse is a 2-D massive multi-palyer RPG (MMORPG) game built with Godot engine.</i>
 
+
+## Features
+
+- Character selection
+- occupies less space
+- cool outfits
+- Amazing weapons
+- talk to players (chat system)
+- marriage system
+
+## Features for future
+
+- Character design
+- World creation
+- duel
+- guilds
+
+# comming soon on android and windows.
